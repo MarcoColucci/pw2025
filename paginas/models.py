@@ -11,8 +11,9 @@ class Country(models.Model):
     name = models.CharField(max_length=100)
     iso_code = models.CharField(max_length=2)
 
+    def __str__(self):
+        return f"Name: {self.name}"
 
-    
 
 class EconomicBloc(models.Model):
     name = models.CharField(max_length=100)

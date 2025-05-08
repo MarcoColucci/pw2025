@@ -1,0 +1,20 @@
+{% extends "paginas/index.html" %}
+
+{% load static %}
+
+{% block conteudo %}
+
+{% comment %} Cria um input para validação dos dados {% endcomment %}
+<h3>{{title}}</h3>
+
+<form action="" method="POST">
+
+    {% csrf_token %}
+
+
+    {{ form.as_p }}
+
+    <button type="submit">Save</button>
+</form>
+
+{% endblock conteudo %}
