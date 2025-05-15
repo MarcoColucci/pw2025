@@ -42,3 +42,36 @@ class Kpi(models.Model):
     value = models.FloatField()
     year = models.PositiveSmallIntegerField(default=0)
     country = models.ForeignKey(Country, on_delete=models.PROTECT)
+
+    
+
+    def __str__(self):
+        return f"{self.title} ({self.year})"
+
+
+class HistoricalEvent(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    year = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.title} ({self.year})"
+
+
+class EconomicSector(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+class SectorTradeData(models.Model):
+    name = models.CharField(max_length=100)
+    country = models.ForeignKey('Country', on_delete=models.PROTECT)
+    sector = models.ForeignKey(EconomicSector, on_delete=models.PROTECT)
+    year = models.PositiveSmallIntegerField(default=0)
+    export_value = models.FloatField()
+    import_value = models.FloatField()
+
+    def __str__(self):
+        return f"{self.name} - {self.sector.name} ({self.year})"
