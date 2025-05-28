@@ -8,56 +8,28 @@ from django.db import models
 
 class Country(models.Model):
     # Definir atributos
+    # gpd = pib
+    # hdi = idh
+
     name = models.CharField(max_length=100)
-    iso_code = models.CharField(max_length=2)
+    gpd = models.CharField(max_length=100)
+    hdi = models.CharField(max_length=100)
+    population = models.CharField(max_length=100)
 
     def __str__(self):
         return f"Name: {self.name}"
 
 
-class EconomicBloc(models.Model):
+class EconomicBlock(models.Model):
     name = models.CharField(max_length=100)
 
 
-class CountryBlocMembership(models.Model):
+class BlockMembership(models.Model):
     country = models.ForeignKey(Country, on_delete=models.PROTECT)
-    bloc = models.ForeignKey(EconomicBloc, on_delete=models.PROTECT)  
-    start = models.DateField()  
-    end = models.DateField()  
+    block = models.ForeignKey(EconomicBlock, on_delete=models.PROTECT)  
+    start_year= models.DateField()  
+    end_year = models.DateField()  
     
-
-class TradeData(models.Model):
-    country = models.ForeignKey(Country, on_delete=models.PROTECT)
-    year = models.PositiveSmallIntegerField(default=0)
-    export_value = models.FloatField()
-    import_value = models.FloatField()
-    trade_balance = models.FloatField()
-    gdp_share = models.FloatField()
-    world_trade_share = models.FloatField()
-
-
-class Kpi(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.CharField(max_length=100)
-    value = models.FloatField()
-    year = models.PositiveSmallIntegerField(default=0)
-    country = models.ForeignKey(Country, on_delete=models.PROTECT)
-
-    
-
-    def __str__(self):
-        return f"{self.title} ({self.year})"
-
-
-class HistoricalEvent(models.Model):
-    title = models.CharField(max_length=255)
-    description = models.TextField()
-    year = models.IntegerField()
-
-    def __str__(self):
-        return f"{self.title} ({self.year})"
-
-
 class EconomicSector(models.Model):
     name = models.CharField(max_length=100)
 
@@ -65,13 +37,12 @@ class EconomicSector(models.Model):
         return self.name
 
 
-class SectorTradeData(models.Model):
-    name = models.CharField(max_length=100)
-    country = models.ForeignKey('Country', on_delete=models.PROTECT)
-    sector = models.ForeignKey(EconomicSector, on_delete=models.PROTECT)
-    year = models.PositiveSmallIntegerField(default=0)
+class Economy(models.Model):
+    country = models.ForeignKey(Country, on_delete=models.PROTECT)
+    year = models.IntegerField()
     export_value = models.FloatField()
     import_value = models.FloatField()
+    sector = models.ForeignKey(EconomicSector, on_delete=models.PROTECT)
 
     def __str__(self):
-        return f"{self.name} - {self.sector.name} ({self.year})"
+        return f"{self.country.name} - {self.year} - {self.sector.name}"

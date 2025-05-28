@@ -3,7 +3,27 @@
 {% load static %}
 
 {% block conteudo %}
+<div class="sobre-container">
+    <h3 class="titulo">Sobre o Projeto</h3>
+    <p class="descricao">
+        O presente projeto tem como objetivo o desenvolvimento de um dashboard interativo e informativo voltado para a análise da guerra comercial entre os Estados Unidos e a China. 
+        A guerra comercial entre EUA e China representa um dos eventos geopolíticos e econômicos mais relevantes da última década. 
+        Através deste dashboard, busca-se proporcionar uma visualização clara, organizada e acessível dos principais dados relacionados ao conflito, como tarifas impostas, 
+        impactos no comércio bilateral, variações cambiais, indicadores econômicos afetados e repercussões nos mercados globais. 
+        O sistema será alimentado por conjuntos de dados históricos e atualizados, provenientes de fontes confiáveis como órgãos governamentais, 
+        instituições econômicas internacionais e bancos de dados públicos. Os dados serão processados e tratados por meio de bibliotecas Python especializadas. 
+        A aplicação web será desenvolvida com foco em usabilidade e responsividade, assegurando que o conteúdo possa ser acessado de maneira eficiente em diferentes dispositivos. 
+        O projeto, além de seu valor acadêmico e informativo, poderá servir como ferramenta de apoio para pesquisadores, estudantes, analistas de mercado e formuladores de políticas públicas. 
+        Com esta iniciativa, pretende-se promover uma compreensão mais aprofundada e baseada em dados dos desdobramentos e consequências da guerra comercial entre as duas maiores economias do mundo.
+    </p>
 
-<h3>Sobre</h3>
+    <div class="imagem-container">
+        <h4 class="subtitulo-imagem">Diagrama de Classes</h4>
+        <img src="{% static 'img/diagrama-classes-pw2025.png' %}" alt="Diagrama de Classes do Projeto">
 
+        <h4 class="subtitulo-imagem">Diagrama de Caso de Uso</h4>
+        <img src="{% static 'img/diagrama-de-casos-de-uso.png' %}" alt="Diagrama de Caso de Uso">
+    </div>
+
+</div>
 {% endblock conteudo %}
