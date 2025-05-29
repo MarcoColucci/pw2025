@@ -1,7 +1,8 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 # adicionado import abaixo
 from django.db import models
+
 
 from .models import Country, EconomicBlock, EconomicSector, BlockMembership, Economy
 
@@ -144,3 +145,11 @@ class EconomyDelete(DeleteView):
     model = Economy
     success_url = reverse_lazy('inicio')
     extra_context = {'title': 'Delete Economic Data'}
+    
+    
+# ---------------------- ListView ----------------------
+
+class CountryList(ListView):
+    model = Country
+    template_name ='paginas/country.html'
+    
