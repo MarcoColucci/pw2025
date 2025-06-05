@@ -1,0 +1,27 @@
+{% extends "paginas/index.html" %}
+
+{% load static %}
+
+{% block conteudo %}
+<h3>Listar Países</h3>
+
+<table> 
+    <tr>
+        <th>Name<th/>
+
+        <th>Options<th/>
+
+        <tr/>
+
+{% for  obj in object_list %}
+
+{% else %}
+<tr>
+    <td colspan="3">Nenhum registro encontrado.</td>
+
+
+<tr/>
+{% endfor %}
+
+    <table/>
+{% endblock conteudo %}

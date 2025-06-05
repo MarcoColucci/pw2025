@@ -153,3 +153,7 @@ class CountryList(ListView):
     model = Country
     template_name ='paginas/country.html'
     
+
+class EconomicBlocList(ListView):
+    model = EconomicBlock
+    template_name = 'paginas/economicblock.html'
