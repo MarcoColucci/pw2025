@@ -12,11 +12,15 @@ from .models import Country, EconomicBlock, EconomicSector, BlockMembership, Eco
 from django.urls import reverse_lazy
 
 class Inicio(TemplateView):
-    template_name ="paginas/index.html"
+    template_name ="paginas/map.html"
 
 
 class SobreView(TemplateView):
     template_name = 'paginas/sobre.html'
+    
+    
+class MapView(TemplateView):
+     template_name = 'paginas/map.html'
 
 # ---------------------- CREATE ----------------------
 

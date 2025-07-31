@@ -10,7 +10,6 @@
     {% endblock %}
 
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
-
     
 
 </head>
@@ -25,8 +24,10 @@
             <li><a href="{% url 'add-economicsector' %}">Setor Econômico</a></li>
             <li><a href="{% url 'add-blockmembership' %}">Adesão Bloco</a></li>
             <li><a href="{% url 'add-economy' %}">Economia</a></li>
+            {% comment %} <li><a href="{% url 'map' %}">Map</a></li> {% endcomment %}
         </ul>
     </nav>
+
 
     {% block conteudo %}
     
