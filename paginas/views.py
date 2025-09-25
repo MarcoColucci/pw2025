@@ -80,7 +80,7 @@ class EconomicIndicatorCreate(LoginRequiredMixin, CreateView):
 
 # ---------------------- UPDATE ----------------------
 
-class CountryUpdate(LoginRequiredMixin, LoginRequiredMixin, UpdateView):
+class CountryUpdate(LoginRequiredMixin, UpdateView):
     model = Country
     template_name = "paginas/form.html"
     fields = ['name', 'gpd', 'hdi', 'population']

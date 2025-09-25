@@ -1,9 +1,9 @@
 
 from django.urls import path
 from .views import Inicio, SobreView, MapView
-from .views import CountryCreate, EconomicBlockCreate, EconomicSectorCreate, BlockMembershipCreate, EconomyCreate
-from .views import CountryDelete, EconomicBlockDelete, EconomicSectorDelete, BlockMembershipDelete, EconomyDelete
-from .views import CountryUpdate, EconomicBlockUpdate, EconomicSectorUpdate, BlockMembershipUpdate, EconomyUpdate
+from .views import CountryCreate, EconomicBlockCreate, EconomicSectorCreate, BlockMembershipCreate, EconomicIndicatorCreate
+from .views import CountryDelete, EconomicBlockDelete, EconomicSectorDelete, BlockMembershipDelete
+from .views import CountryUpdate, EconomicBlockUpdate, EconomicSectorUpdate, BlockMembershipUpdate
 from django.contrib.auth import views as auth_views
 from .views import CountryList
 
@@ -15,7 +15,7 @@ urlpatterns = [
     path("register/economicbloc", EconomicBlockCreate.as_view(), name="add-economicbloc"),
     path("register/economicsector", EconomicSectorCreate.as_view(), name="add-economicsector"),
     path("register/blockmembership/", BlockMembershipCreate.as_view(), name="add-blockmembership"),
-    path("register/economy/", EconomyCreate.as_view(), name="add-economy"),
+    path("register/economy/", EconomicIndicatorCreate.as_view(), name="add-economy"),
 
     path('login/', auth_views.LoginView.as_view(template_name='paginas/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
